@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">E-CommerceShoppingAndroidApp</string>
+    <string name="face">Face</string>
+    <string name="skin">Skin</string>
+    <string name="body">Body</string>
+    <string name="todo">TODO</string>
+    <string name="hair">Hair</string>
 </resources>
