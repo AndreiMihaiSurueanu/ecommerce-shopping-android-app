@@ -6,6 +6,10 @@
 # Files for the ART/Dalvik VM
 *.dex
 
+# Project resources
+OnlineProductsApp-master
+OnlineProductsApp-master.zip
+
 # Java class files
 *.class
 
