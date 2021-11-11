@@ -1,8 +1,10 @@
 package com.example.e_commerceshoppingandroidapp.adapter;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +51,10 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, Productdetails.class);
-                context.startActivity(i);
+                Pair[] pairs = new Pair[1];
+                pairs[0] = new Pair<View, String>(holder.prodImage, "image");
+                ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation((Activity) context, pairs);
+                context.startActivity(i, activityOptions.toBundle());
             }
         });
 
