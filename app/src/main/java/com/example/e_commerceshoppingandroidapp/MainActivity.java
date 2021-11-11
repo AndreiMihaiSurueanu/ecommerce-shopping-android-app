@@ -6,8 +6,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.example.e_commerceshoppingandroidapp.adapter.ProductAdapter;
 import com.example.e_commerceshoppingandroidapp.adapter.ProductCategoryAdapter;
 import com.example.e_commerceshoppingandroidapp.model.ProductCategory;
+import com.example.e_commerceshoppingandroidapp.model.Products;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,8 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     ProductCategoryAdapter productCategoryAdapter;
-    RecyclerView productCatRecycler;
+    RecyclerView productCatRecycler, prodItemRecycler;
+    ProductAdapter productAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +36,16 @@ public class MainActivity extends AppCompatActivity {
 
         setProductRecycler(productCategoryList);
 
+        List<Products> productsList = new ArrayList<>();
+        productsList.add(new Products(1, "Japanese Cherry Blossom", "250 ml", "$ 17.00", R.drawable.prod2));
+        productsList.add(new Products(2, "African Mango Shower Gel", "350 ml", "$ 25.00", R.drawable.prod1));
+        productsList.add(new Products(1, "Japanese Cherry Blossom", "250 ml", "$ 17.00", R.drawable.prod2));
+        productsList.add(new Products(2, "African Mango Shower Gel", "350 ml", "$ 25.00", R.drawable.prod1));
+        productsList.add(new Products(1, "Japanese Cherry Blossom", "250 ml", "$ 17.00", R.drawable.prod2));
+        productsList.add(new Products(2, "African Mango Shower Gel", "350 ml", "$ 25.00", R.drawable.prod1));
+
+        setProdItemRecycler(productsList);
+
     }
 
     private void setProductRecycler(List<ProductCategory> productCategoryList){
@@ -44,4 +57,15 @@ public class MainActivity extends AppCompatActivity {
         productCatRecycler.setAdapter(productCategoryAdapter);
 
     }
+
+    private void setProdItemRecycler(List<Products> productsList){
+
+        prodItemRecycler = findViewById(R.id.product_recycler);
+        RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false);
+        prodItemRecycler.setLayoutManager(layoutManager);
+        productAdapter = new ProductAdapter(this, productsList);
+        prodItemRecycler.setAdapter(productAdapter);
+
+    }
+
 }
